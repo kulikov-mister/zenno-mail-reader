@@ -1,0 +1,365 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SocksSharp</name>
+    </assembly>
+    <members>
+        <member name="T:SocksSharp.ProxyClientHandler`1">
+            <summary>
+            Represents <see cref="T:System.Net.Http.HttpMessageHandler"/> with <see cref="T:SocksSharp.Proxy.IProxyClient`1"/>
+            to provide the <see cref="T:System.Net.Http.HttpClient"/> support for <see cref="!:&lt;T&gt;"/> proxy type
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:SocksSharp.ProxyClientHandler`1.Proxy">
+            <summary>
+            Gets a current ProxyClient 
+            </summary>
+        </member>
+        <member name="P:SocksSharp.ProxyClientHandler`1.UseProxy">
+            <summary>
+            Gets a value that indicates whether the handler uses a proxy for requests.
+            </summary>
+        </member>
+        <member name="P:SocksSharp.ProxyClientHandler`1.SupportsProxy">
+            <summary>
+            Gets a value that indicates whether the handler supports proxy settings.
+            </summary>
+        </member>
+        <member name="P:SocksSharp.ProxyClientHandler`1.AllowAutoRedirect">
+            <summary>
+            Gets a value that indicates whether the handler should follow redirection responses.
+            </summary>
+        </member>
+        <member name="P:SocksSharp.ProxyClientHandler`1.SupportsRedirectConfiguration">
+            <summary>
+            Gets a value that indicates whether the handler supports 
+            configuration settings for the <see cref="P:SocksSharp.ProxyClientHandler`1.AllowAutoRedirect"/>
+            </summary>
+        </member>
+        <member name="P:SocksSharp.ProxyClientHandler`1.AutomaticDecompression">
+            <summary>
+            Gets the type of decompression method used by the handler for automatic 
+            decompression of the HTTP content response.
+            </summary>
+            <remarks>
+            Support GZip and Deflate encoding automatically
+            </remarks>
+        </member>
+        <member name="P:SocksSharp.ProxyClientHandler`1.UseCookies">
+            <summary>
+            Gets or sets a value that indicates whether the handler uses the CookieContainer
+            property to store server cookies and uses these cookies when sending requests.
+            </summary>
+        </member>
+        <member name="P:SocksSharp.ProxyClientHandler`1.CookieContainer">
+            <summary>
+            Gets or sets the cookie container used to store server cookies by the handler.
+            </summary>
+        </member>
+        <member name="P:SocksSharp.ProxyClientHandler`1.ServerCertificateCustomValidationCallback">
+            <summary>
+            Gets or sets delegate to verifies the remote Secure Sockets Layer (SSL) 
+            certificate used for authentication.
+            </summary>
+        </member>
+        <member name="M:SocksSharp.ProxyClientHandler`1.#ctor(SocksSharp.Proxy.ProxySettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SocksSharp.ProxyClientHandler`1"/> with <see cref="T:SocksSharp.Proxy.ProxySettings"/> settings
+            </summary>
+            <param name="proxySettings">Proxy settings</param>
+            <exception cref="T:System.ArgumentNullException">
+            Value of <see cref="!:proxySetting"/> is <see langword="null"/>
+            </exception>
+        </member>
+        <member name="M:SocksSharp.ProxyClientHandler`1.SendAsync(System.Net.Http.HttpRequestMessage,System.Threading.CancellationToken)">
+            <summary>
+            Creates an instance of HttpResponseMessage based on the information provided in the HttpRequestMessage as an operation that will not block.
+            </summary>
+            <param name="request">The HTTP request message.</param>
+            <param name="cancellationToken">A cancellation token to cancel the operation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SocksSharp.Proxy.Socks4.CreateConnection(System.String,System.Int32,System.Net.Sockets.TcpClient)">
+            <summary>
+            Create connection to destination host via proxy server.
+            </summary>
+            <param name="destinationHost">Host</param>
+            <param name="destinationPort">Port</param>
+            <param name="tcpClient">Connection with proxy server.</param>
+            <returns>Connection to destination host</returns>
+            <exception cref="T:System.ArgumentException">Value of <paramref name="destinationHost"/> is <see langword="null"/> or empty.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Value of <paramref name="destinationPort"/> less than 1 or greater than 65535.</exception>
+            <exception cref="T:SocksSharp.Proxy.ProxyException">Error while working with proxy.</exception>
+        </member>
+        <member name="M:SocksSharp.Proxy.Socks5.CreateConnection(System.String,System.Int32,System.Net.Sockets.TcpClient)">
+            <summary>
+            Create connection to destination host via proxy server.
+            </summary>
+            <param name="destinationHost">Host</param>
+            <param name="destinationPort">Port</param>
+            <param name="tcpClient">Connection with proxy server.</param>
+            <returns>Connection to destination host</returns>
+            <exception cref="T:System.ArgumentException">Value of <paramref name="destinationHost"/> is <see langword="null"/> or empty.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Value of <paramref name="destinationPort"/> less than 1 or greater than 65535.</exception>
+            <exception cref="T:SocksSharp.Proxy.ProxyException">Error while working with proxy.</exception>
+        </member>
+        <member name="T:SocksSharp.Proxy.IProxy">
+            <summary>
+            Provides an interface for proxy client 
+            </summary>
+        </member>
+        <member name="P:SocksSharp.Proxy.IProxy.Settings">
+            <summary>
+            Gets or sets proxy settings
+            </summary>
+        </member>
+        <member name="M:SocksSharp.Proxy.IProxy.CreateConnection(System.String,System.Int32,System.Net.Sockets.TcpClient)">
+            <summary>
+            Create connection to destination host via proxy server.
+            </summary>
+            <param name="destinationHost">Host</param>
+            <param name="destinationPort">Port</param>
+            <param name="tcpClient">Connection with proxy server.</param>
+            <returns>Connection to destination host</returns>
+        </member>
+        <member name="T:SocksSharp.Proxy.IProxyClient`1">
+            <summary>
+            Provides an interface for <see cref="T:SocksSharp.Proxy.ProxyClient`1"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:SocksSharp.Proxy.IProxyClient`1.Settings">
+            <summary>
+            Gets or sets proxy settings for client
+            </summary>
+        </member>
+        <member name="M:SocksSharp.Proxy.IProxyClient`1.GetDestinationStream(System.String,System.Int32)">
+            <summary>
+            Create connection via proxy to destination host
+            </summary>
+            <returns>Destination <see cref="T:System.Net.Sockets.NetworkStream"/></returns>
+        </member>
+        <member name="T:SocksSharp.Proxy.IProxySettings">
+            <summary>
+            Provides an interface for proxy settings
+            </summary>
+        </member>
+        <member name="P:SocksSharp.Proxy.IProxySettings.Credentials">
+            <summary>
+            Gets or sets the credentials to submit to the proxy server for authentication.
+            </summary>
+        </member>
+        <member name="P:SocksSharp.Proxy.IProxySettings.Host">
+            <summary>
+            Gets or sets a value of host or IP address for the proxy server
+            </summary>
+        </member>
+        <member name="P:SocksSharp.Proxy.IProxySettings.Port">
+            <summary>
+            Gets or sets a value of Port for the proxy server
+            </summary>
+        </member>
+        <member name="P:SocksSharp.Proxy.IProxySettings.ConnectTimeout">
+            <summary>
+            Gets or sets the amount of time a <see cref="T:SocksSharp.Proxy.ProxyClient`1"/>
+            will wait to connect to the proxy server
+            </summary>
+        </member>
+        <member name="P:SocksSharp.Proxy.IProxySettings.ReadWriteTimeOut">
+            <summary>
+            Gets or sets the amount of time a <see cref="T:SocksSharp.Proxy.ProxyClient`1"/>
+            will wait for read or wait data from the proxy server
+            </summary>
+        </member>
+        <member name="T:SocksSharp.Proxy.IProxySettingsFluent">
+            <summary>
+            Provides an interface for fluent proxy settings
+            </summary>
+        </member>
+        <member name="M:SocksSharp.Proxy.IProxySettingsFluent.SetHost(System.String)">
+            <summary>
+            Sets a value of host or IP address for the proxy server
+            </summary>
+            <param name="host">Host</param>
+            <returns><see cref="T:SocksSharp.Proxy.IProxySettingsFluent"/></returns>
+        </member>
+        <member name="M:SocksSharp.Proxy.IProxySettingsFluent.SetPort(System.Int32)">
+            <summary>
+            Sets a value of Port for the proxy server
+            </summary>
+            <param name="port">Port</param>
+            <returns><see cref="T:SocksSharp.Proxy.IProxySettingsFluent"/></returns>
+        </member>
+        <member name="M:SocksSharp.Proxy.IProxySettingsFluent.SetConnectionTimeout(System.Int32)">
+            <summary>
+            Gets or sets the amount of time a <see cref="T:SocksSharp.Proxy.ProxyClient`1"/>
+            will wait for read or wait data from the proxy server
+            </summary>
+            <param name="connectionTimeout">Connection timeout</param>
+            <returns><see cref="T:SocksSharp.Proxy.IProxySettingsFluent"/></returns>
+        </member>
+        <member name="M:SocksSharp.Proxy.IProxySettingsFluent.SetReadWriteTimeout(System.Int32)">
+            <summary>
+            Sets the amount of time a <see cref="T:SocksSharp.Proxy.ProxyClient`1"/>
+            will wait to connect to the proxy server
+            </summary>
+            <param name="readwriteTimeout">Read/Write timeout</param>
+            <returns><see cref="T:SocksSharp.Proxy.IProxySettingsFluent"/></returns>
+        </member>
+        <member name="M:SocksSharp.Proxy.IProxySettingsFluent.SetCredential(System.Net.NetworkCredential)">
+            <summary>
+            Sets the credentials to submit to the proxy server for authentication
+            </summary>
+            <param name="credential">Credential</param>
+            <returns><see cref="T:SocksSharp.Proxy.IProxySettingsFluent"/></returns>
+        </member>
+        <member name="M:SocksSharp.Proxy.IProxySettingsFluent.SetCredential(System.String,System.String)">
+            <summary>
+            Sets the credentials to submit to the proxy server for authentication
+            </summary>
+            <param name="username">Username</param>
+            <param name="password">Password</param>
+            <returns><see cref="T:SocksSharp.Proxy.IProxySettingsFluent"/></returns>
+        </member>
+        <member name="T:SocksSharp.Proxy.ProxyClient`1">
+            <summary>
+            Represents Proxy Client to <see cref="T:SocksSharp.ProxyClientHandler`1"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:SocksSharp.Proxy.ProxyClient`1.Settings">
+            <summary>
+            Gets or sets proxy settings for client
+            </summary>
+        </member>
+        <member name="M:SocksSharp.Proxy.ProxyClient`1.#ctor">
+            <summary>
+            Initialize a new instance of the <see cref="T:SocksSharp.Proxy.ProxyClient`1"/> with <see cref="T:SocksSharp.Proxy.IProxy"/> proxy handler
+            </summary>
+        </member>
+        <member name="M:SocksSharp.Proxy.ProxyClient`1.GetDestinationStream(System.String,System.Int32)">
+            <summary>
+            Create connection via proxy to destination host
+            </summary>
+            <returns>Destination <see cref="T:System.Net.Sockets.NetworkStream"/></returns>
+            <exception cref="T:System.InvalidOperationException">
+            Value of <see cref="!:Host"/> equals <see langword="null"/> or empty.
+            -or-
+            Value of <see cref="!:Port"/> less than 1 or greater than 65535.
+            -or-
+            Value of <see cref="!:UserName"/> length greater than 255.
+            -or-
+            Value of <see cref="!:Password"/> length greater than 255.
+            </exception>
+        </member>
+        <member name="T:SocksSharp.Proxy.ProxyException">
+            <summary>
+            Represents errors that occur during proxy execution.
+            </summary>
+        </member>
+        <member name="M:SocksSharp.Proxy.ProxyException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SocksSharp.Proxy.ProxyException"/> with a specified error message 
+            and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a <see langword="null"/> reference.</param>
+        </member>
+        <member name="T:SocksSharp.Proxy.ProxySettings">
+            <summary>
+            Represents the settings for <see cref="T:SocksSharp.Proxy.ProxyClient`1"/>
+            </summary>
+        </member>
+        <member name="P:SocksSharp.Proxy.ProxySettings.Credentials">
+            <summary>
+            Gets or sets the credentials to submit to the proxy server for authentication.
+            </summary>
+        </member>
+        <member name="P:SocksSharp.Proxy.ProxySettings.Host">
+            <summary>
+            Gets or sets a value of host or IP address for the proxy server
+            </summary>
+        </member>
+        <member name="P:SocksSharp.Proxy.ProxySettings.Port">
+            <summary>
+            Gets or sets a value of Port for the proxy server
+            </summary>
+        </member>
+        <member name="P:SocksSharp.Proxy.ProxySettings.ConnectTimeout">
+            <summary>
+            Gets or sets the amount of time a <see cref="T:SocksSharp.Proxy.ProxyClient`1"/>
+            will wait to connect to the proxy server
+            </summary>
+        </member>
+        <member name="P:SocksSharp.Proxy.ProxySettings.ReadWriteTimeOut">
+            <summary>
+            Gets or sets the amount of time a <see cref="T:SocksSharp.Proxy.ProxyClient`1"/>
+            will wait for read or wait data from the proxy server
+            </summary>
+        </member>
+        <member name="M:SocksSharp.Proxy.ProxySettings.SetCredential(System.Net.NetworkCredential)">
+            <summary>
+            Sets the credentials to submit to the proxy server for authentication
+            </summary>
+            <param name="credential">Credential</param>
+            <returns><see cref="T:SocksSharp.Proxy.IProxySettingsFluent"/></returns>
+        </member>
+        <member name="M:SocksSharp.Proxy.ProxySettings.SetCredential(System.String,System.String)">
+            <summary>
+            Sets the credentials to submit to the proxy server for authentication
+            </summary>
+            <param name="username">Username</param>
+            <param name="password">Password</param>
+            <returns><see cref="T:SocksSharp.Proxy.IProxySettingsFluent"/></returns>
+        </member>
+        <member name="M:SocksSharp.Proxy.ProxySettings.SetHost(System.String)">
+            <summary>
+            Sets a value of host or IP address for the proxy server
+            </summary>
+            <param name="host">Host</param>
+            <returns><see cref="T:SocksSharp.Proxy.IProxySettingsFluent"/></returns>
+        </member>
+        <member name="M:SocksSharp.Proxy.ProxySettings.SetPort(System.Int32)">
+            <summary>
+            Sets a value of Port for the proxy server
+            </summary>
+            <param name="port">Port</param>
+            <returns><see cref="T:SocksSharp.Proxy.IProxySettingsFluent"/></returns>
+        </member>
+        <member name="M:SocksSharp.Proxy.ProxySettings.SetReadWriteTimeout(System.Int32)">
+            <summary>
+            Sets the amount of time a <see cref="T:SocksSharp.Proxy.ProxyClient`1"/>
+            will wait to connect to the proxy server
+            </summary>
+            <param name="readwriteTimeout">Read/Write timeout</param>
+            <returns><see cref="T:SocksSharp.Proxy.IProxySettingsFluent"/></returns>
+        </member>
+        <member name="M:SocksSharp.Proxy.ProxySettings.SetConnectionTimeout(System.Int32)">
+            <summary>
+            Gets or sets the amount of time a <see cref="T:SocksSharp.Proxy.ProxyClient`1"/>
+            will wait for read or wait data from the proxy server
+            </summary>
+            <param name="connectionTimeout">Connection timeout</param>
+            <returns><see cref="T:SocksSharp.Proxy.IProxySettingsFluent"/></returns>
+        </member>
+        <member name="M:SocksSharp.Proxy.ProxySettings.TryParse(System.String,SocksSharp.Proxy.ProxySettings@)">
+            <summary>
+            Converts the string representation of a <see cref="T:SocksSharp.Proxy.ProxySettings"/>. 
+            A return value indicates whether the conversion succeeded.
+            </summary>
+            <param name="proxy">A string containing proxy settings</param>
+            <param name="proxySettings">When this method returns,
+            contains the instance of the <see cref="T:SocksSharp.Proxy.ProxySettings"/> value equivalent of the number contained in proxy, 
+            if the conversion succeeded, or <see cref="!:null"/> if the conversion failed.</param>
+            <returns><see cref="!:true"/> if s was converted successfully; otherwise, <see cref="!:false"/>.</returns>
+            <remarks>String must be in one of this format 
+            host:port
+            - or -
+            host:port:username
+            - or -
+            host:port:username:password
+            </remarks>
+        </member>
+    </members>
+</doc>
