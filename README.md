@@ -15,5 +15,9 @@ Input Parameters in input_params.png on Russian Language
 Конечная версия не может быть выложена в гитхаб, так как это был частный заказ компании.
 Входные переменнные в файле input_vars.png
 
-ExternalAssemblies -
+
+# ExternalAssemblies -
 ![image](https://github.com/user-attachments/assets/dfe24603-a1fb-4574-9616-96f1e0970aed)
+
+
+# 
