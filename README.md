@@ -3,3 +3,14 @@ Mail Reader For Zennoposter on C#-language.
 
 Use pls with MailKit, MimeKit, 
 Input Parameters in input_params.png on Russian Language
+
+
+# zenno-mail-reader на русском
+Читалка почт для Zennoposter на C#.
+
+Используйте вместе с MailKit, MimeKit, 
+Входные параметры в файле input_params.png
+
+переменные можно задать любые и переименовать в самой читалке. Используйте на свой страх и риск, это просто болванка для дальнейшего использования.
+Конечная версия не может быть выложена в гитхаб, так как это был частный заказ компании.
+Входные переменнные в файле input_vars.png
