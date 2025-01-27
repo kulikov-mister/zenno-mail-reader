@@ -16,8 +16,8 @@ Input Parameters in input_params.png on Russian Language
 Входные переменнные в файле input_vars.png
 
 
-# ExternalAssemblies -
+# ExternalAssemblies - приложены в репозитории.
 ![image](https://github.com/user-attachments/assets/dfe24603-a1fb-4574-9616-96f1e0970aed)
 
 
-# 
+# Библиотеки успешно протестированы на версиях Zennoposter - 7.7.10-7.7.15 и рабтают с данной читалкой
